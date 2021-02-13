@@ -1,0 +1,24 @@
+{
+  "name": "student_angular_xoka_api",
+  "version": "1.0.0",
+  "description": "api for student xoka management",
+  "main": "api.js",
+  "scripts": {
+    "start": "node api.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "rest",
+    "api",
+    "express",
+    "sqlite3",
+    "knex"
+  ],
+  "author": "naol arega",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.21.17",
+    "sqlite3": "^5.0.0"
+  }
+}
