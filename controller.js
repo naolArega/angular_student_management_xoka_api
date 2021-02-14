@@ -100,7 +100,7 @@ let createNewObject = async (req, res) => {
                 req.body.name,
                 req.body.age,
                 req.body.year,
-                req.body.classid,
+                req.body.classId,
                 req.body.courseId);
             objectResult = await newObject.createStudent();
             break;
