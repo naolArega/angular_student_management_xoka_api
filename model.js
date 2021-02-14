@@ -2,7 +2,7 @@ const knexConnection = require("./knex_connection");
 const alphNum = require("alphanumeric-random-string-generator");
 
 const tableNames = {
-    student: "studentes",
+    student: "students",
     class: "classes",
     course: "courses",
     test: "tests",
@@ -15,14 +15,15 @@ let operationSuccess = (result) => {
     if (Object.keys(result).length > 0) {
         data = {
             success: true,
+            status_code: 200,
             result
         };
     }
     else {
         data = {
-            success: false,
-            error_code: 404,
-            error_message: "not found"
+            success: true,
+            status_code: 204,
+            error_message: "no content"
         };
     }
     return data;
@@ -32,7 +33,7 @@ let operationFailure = (err) => {
     console.error(err);
     let errorData = {
         success: false,
-        error_code: 500,
+        status_code: 500,
         error_message: err
     }
     return errorData;

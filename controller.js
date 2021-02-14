@@ -11,10 +11,15 @@ const types = {
 function responedResult(objectResult, res) {
     console.log(objectResult);
     if (objectResult.success) {
-        res.status(200).json(objectResult);
+        if (objectResult.status_code === 200) {
+            res.status(200).json(objectResult);
+        }
+        else {
+            res.status(200).json(objectResult);
+        }
     }
     else {
-        if (objectResult.error_code === 500) {
+        if (objectResult.status_code === 500) {
             res.status(500).json({ success: false, code: 500, message: "server side error" });
         }
         else {
