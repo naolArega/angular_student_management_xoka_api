@@ -2,7 +2,7 @@ const knexConnection = require("./knex_connection");
 const alphNum = require("alphanumeric-random-string-generator");
 
 const tableNames = {
-    student: "students",
+    student: "studentes",
     class: "classes",
     course: "courses",
     test: "tests",
@@ -21,6 +21,7 @@ let operationSuccess = (result) => {
     else {
         data = {
             success: false,
+            error_code: 404,
             error_message: "not found"
         };
     }
@@ -31,6 +32,7 @@ let operationFailure = (err) => {
     console.error(err);
     let errorData = {
         success: false,
+        error_code: 500,
         error_message: err
     }
     return errorData;
@@ -75,13 +77,15 @@ class Student {
     age;
     year;
     classId;
+    courseId;
 
-    constructor(name, age, year, classId) {
+    constructor(name, age, year, classId, courseId) {
         this.studentId = alphNum(8);
         this.name = name;
         this.age = age;
         this.year = year;
         this.classId = classId;
+        this.courseId = courseId;
         console.log(this.studentId);
     }
 
@@ -91,7 +95,8 @@ class Student {
             name: this.name,
             age: this.age,
             year: this.year,
-            class_id: this.classId
+            class_id: this.classId,
+            course_id: this.courseId
         };
         return createObject(tableNames.student, studentObject);
     }
@@ -100,7 +105,8 @@ class Student {
             name: this.name,
             age: this.age,
             year: this.year,
-            class_id: this.classId
+            class_id: this.classId,
+            course_id: this.courseId
         };
         return updateObject(tableNames.student, { "student_id": studentId }, newObject);
     }
