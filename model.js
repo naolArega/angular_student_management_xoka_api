@@ -213,13 +213,13 @@ class Test {
             name: this.name,
             instructor: this.instructor
         };
-        return updateObject(tableNames.test, { "test": testId }, newObject);
+        return updateObject(tableNames.test, { "test_id": testId }, newObject);
     }
     static deleteTest(testId) {
-        return deleteObject(tableNames.test, { "test": testId });
+        return deleteObject(tableNames.test, { "test_id": testId });
     }
     static readTest(testId) {
-        return fetchObject(tableNames.test, { "test": testId });
+        return fetchObject(tableNames.test, { "test_id": testId });
     }
     static tests() {
         return fetchAll(tableNames.test);
@@ -244,26 +244,17 @@ class TestResult {
         };
         return createObject(tableNames.testResult, testResultObject);
     }
-    updateTestResult(studentId, testId) {
+    updateTestResult(studentId) {
         let newObject = {
             result: this.result
         };
-        return updateObject(tableNames.testResult, {
-            "student_id": studentId,
-            "test_id": testId
-        }, newObject);
+        return updateObject(tableNames.testResult, { "student_id": studentId }, newObject);
     }
-    static deleteTestResult(studentId, testId) {
-        return deleteObject(tableNames.testResult, {
-            "student_id": studentId,
-            "test_id": testId
-        });
+    static deleteTestResult(studentId) {
+        return deleteObject(tableNames.testResult, { "student_id": studentId });
     }
-    static readTestResult(studentId, testId) {
-        return fetchObject(tableNames.testResult, {
-            "student_id": studentId,
-            "test_id": testId
-        });
+    static readTestResult(studentId) {
+        return fetchObject(tableNames.testResult, { "student_id": studentId });
     }
     static testResults() {
         return fetchAll(tableNames.testResult);

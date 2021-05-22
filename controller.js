@@ -5,7 +5,7 @@ const types = {
     CLASS: "classes",
     COURSE: "courses",
     TEST: "tests",
-    TEST_RESULT: "testresults"
+    TEST_RESULT: "test_results"
 };
 
 function responedResult(objectResult, res) {

@@ -1,9 +1,11 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 const controller = require("./controller");
 
 const api = express();
 
+api.use(cors());
 api.use(bodyParser.urlencoded({ extended: false }));
 api.use(bodyParser.json());
 
@@ -17,6 +19,6 @@ api.patch("/:type/:id", controller.updateObject);
 
 api.delete("/:type/:id", controller.deleteObject);
 
-api.listen(80, "api.studentangularxoka.io", () => {
+api.listen(8080, "api.studentangularxoka.io", () => {
     console.log("Api server is now running at api.studentangularxoka.io");
 });
