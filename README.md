@@ -16,9 +16,27 @@ to create a student
 `method: post `
 `http://api.studentangularxoka.io/students`
 
+`fields`
+| field name | type   |
+| ---------- | ------ |
+| name       | string |
+| age        | number |
+| year       | number |
+| classId    | string |
+| courseId   | string |
+
 to update a student
 `method: patch `
 `http://api.studentangularxoka.io/students/[id]`
+
+`fields`
+| field name | type   |
+| ---------- | ------ |
+| name       | string |
+| age        | number |
+| year       | number |
+| classId    | string |
+| courseId   | string |
 
 to delete a student
 `method: delete `
